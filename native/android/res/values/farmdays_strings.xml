@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="farmdays_widget_name">FarmDays</string>
+    <string name="farmdays_widget_description">Dia, mês e estação do ano em pixel art</string>
+</resources>

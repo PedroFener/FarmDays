@@ -2,8 +2,8 @@
 node_modules/
 
 # Projeto Android gerado pelo Capacitor (recriado por `npm run android:prepare`)
-android/
-ios/
+/android/
+/ios/
 
 # Saídas de build
 *.apk
