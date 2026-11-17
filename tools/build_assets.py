@@ -625,32 +625,7 @@ def app_icon():
     im.paste(fl, (24, 1), fl)
     return im
 
-icon = app_icon()
-save(icon, "app_icon.png")
-
-ICON_SIZES = {"mdpi": 48, "hdpi": 72, "xhdpi": 96, "xxhdpi": 144, "xxxhdpi": 192}
-FG_SIZES = {"mdpi": 108, "hdpi": 162, "xhdpi": 216, "xxhdpi": 324, "xxxhdpi": 432}
-for dens, s in ICON_SIZES.items():
-    folder = os.path.join(NAT, f"mipmap-{dens}")
-    big = icon.resize((s, s), Image.NEAREST)
-    save(big, "ic_launcher.png", folder)
-    # versão redonda: mesmo ícone sobre círculo de madeira escura
-    rnd_im = new(s, s)
-    mask = Image.new("L", (s, s), 0)
-    ImageDraw.Draw(mask).ellipse([0, 0, s - 1, s - 1], fill=255)
-    bgc = Image.new("RGBA", (s, s), hexc("#6e3f1d"))
-    rnd_im.paste(bgc, (0, 0), mask)
-    inner = icon.resize((int(s * 0.72), int(s * 0.72)), Image.NEAREST)
-    off = (s - inner.width) // 2
-    rnd_im.paste(inner, (off, off), inner)
-    save(rnd_im, "ic_launcher_round.png", folder)
-for dens, s in FG_SIZES.items():
-    folder = os.path.join(NAT, f"mipmap-{dens}")
-    fg = new(s, s)
-    inner = icon.resize((int(s * 0.62), int(s * 0.62)), Image.NEAREST)
-    off = (s - inner.width) // 2
-    fg.paste(inner, (off, off), inner)
-    save(fg, "ic_launcher_foreground.png", folder)
+# Ícone do app: ver tools/build_icon.py (gera mipmaps e www/assets/app_icon.png)
 
 
 # ------------------------------------------------------- modelo do widget
@@ -750,8 +725,8 @@ def splash():
     for y in range(0, H, tex.height):
         for x in range(0, W, tex.width):
             im.paste(tex, (x, y))
-    ic = icon.resize((64, 64), Image.NEAREST)
-    im.paste(ic, ((W - 64) // 2, (H - 64) // 2 - 10), ic)
+    ic = Image.open(os.path.join(WWW, "app_icon.png")).convert("RGBA").resize((66, 66), Image.NEAREST)
+    im.paste(ic, ((W - 66) // 2, (H - 66) // 2 - 10), ic)
     return im.resize((W * 6, H * 6), Image.NEAREST).convert("RGB")
 
 

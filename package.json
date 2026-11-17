@@ -8,7 +8,7 @@
   "scripts": {
     "test": "node --test tests/logic.test.js",
     "serve": "npx --yes http-server www -p 8080 -c-1",
-    "assets": "python3 tools/build_font.py && python3 tools/build_assets.py",
+    "assets": "python3 tools/build_font.py && python3 tools/build_icon.py && python3 tools/build_assets.py",
     "android:add": "npx cap add android",
     "android:native": "node scripts/apply-native.mjs",
     "android:sync": "npx cap sync android",

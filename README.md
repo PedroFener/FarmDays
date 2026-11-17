@@ -6,22 +6,26 @@ jardim com galinha, flores e cerca. Mostra o calendário **gregoriano real**, a
 e tem um **widget nativo** para a tela inicial.
 
 <p align="center">
+  <img src="docs/icon-512.png" width="120" alt="Ícone do FarmDays"><br><br>
   <img src="docs/screenshot-main.png" width="300" alt="Tela principal">
   &nbsp;
   <img src="www/assets/widget_preview.png" width="220" alt="Widget">
 </p>
 
-## ⬇️ Baixar o APK
+## ⬇️ Baixar e instalar
 
-1. Abra a aba **Actions** do repositório → workflow **Android APK** → execução mais recente com ✅.
-2. Em **Artifacts**, baixe `FarmDays-v1.0.0-apk` (um .zip com o APK dentro).
-3. No celular, abra o `.apk` e permita "instalar apps desconhecidos" para o seu gerenciador de arquivos.
+**[📥 Baixar a versão mais recente (APK)](https://github.com/PedroFener/FarmDays/releases/latest)**
 
-Quando uma tag `v*` é criada (ex.: `v1.0.0`), o mesmo workflow publica o APK em **Releases**.
+1. Na página da release, toque em **FarmDays-vX.Y.Z.apk** (em *Assets*).
+2. Abra o arquivo baixado. Se o Android pedir, permita **instalar apps desconhecidos** para o navegador ou gerenciador de arquivos.
+3. Pronto! Para o widget: segure numa área vazia da tela inicial → **Widgets** → **FarmDays**.
 
-> No Redmi/MIUI/HyperOS: para o widget, segure numa área vazia da tela inicial →
-> **Widgets** → **FarmDays**. Se a data do widget demorar para virar à meia-noite,
-> desative a otimização de bateria do app (Configurações → Apps → FarmDays → Economia de bateria → Sem restrições).
+Requer Android 7.0 ou mais novo. Testado para o Redmi Note 11.
+
+> Redmi/Xiaomi (MIUI/HyperOS): se a data do widget demorar para virar à meia-noite,
+> vá em Configurações → Apps → FarmDays → Economia de bateria → **Sem restrições**.
+
+Para atualizar, basta instalar o APK novo por cima: seus eventos continuam salvos.
 
 ## ✨ Funcionalidades
 
@@ -96,10 +100,17 @@ e chame `FarmHolidays.forYear(ano, { uf: 'SP', municipio: 'SP/São Paulo' })`.
 Para cada novo ano, adicione a portaria federal em `OFFICIAL` (pontos facultativos
 oficiais substituem a previsão automaticamente).
 
-## 🔐 Versão de produção assinada (opcional)
+## 🚀 Publicar uma nova versão
 
-O APK de depuração não precisa de chave. Para gerar também um APK assinado,
-crie uma keystore **no seu computador** e cadastre em
+1. Altere `version` em `package.json` (ex.: `1.0.1`) e o texto de `.github/release-notes.md`.
+2. Crie e envie a tag: `git tag v1.0.1 && git push origin v1.0.1`.
+3. O GitHub Actions compila, assina e publica o APK em **Releases**.
+
+## 🔐 Assinatura do APK
+
+O APK publicado nas releases é assinado com uma chave fixa, para que as atualizações
+instalem por cima das versões antigas. A chave fica **somente** em GitHub Secrets,
+cadastrada em
 *Settings → Secrets and variables → Actions*:
 
 | Secret | Conteúdo |
