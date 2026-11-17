@@ -1,0 +1,8 @@
+{
+  "appId": "com.pedrofener.farmdays",
+  "appName": "FarmDays",
+  "webDir": "www",
+  "android": {
+    "backgroundColor": "#4f2a12"
+  }
+}

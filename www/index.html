@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#4f2a12">
+  <title>FarmDays</title>
+  <link rel="icon" href="assets/app_icon.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="app" class="season-primavera">
+
+    <!-- Cabeçalho: placa de madeira com mês e ano -->
+    <header class="sign" id="sign">
+      <img class="corner tl flowers" src="assets/flowers_primavera.png" alt="">
+      <img class="corner tr flowers" src="assets/flowers_primavera.png" alt="">
+      <img class="corner bl flowers" src="assets/flowers_primavera.png" alt="">
+      <img class="corner br flowers" src="assets/flowers_primavera.png" alt="">
+      <button class="nav-arrow" id="prevMonth" aria-label="Mês anterior"><img src="assets/arrow_left.png" alt=""></button>
+      <button class="sign-title" id="monthTitle" aria-label="Escolher mês e ano"><span id="titleText"><span id="monthName">Mês</span> <span id="yearNum">2026</span></span></button>
+      <button class="nav-arrow" id="nextMonth" aria-label="Próximo mês"><img src="assets/arrow_right.png" alt=""></button>
+    </header>
+
+    <!-- Cena: céu, estação, calendário e jardim -->
+    <main class="scene" id="scene">
+      <div class="sky">
+        <img class="cloud c1" src="assets/cloud.png" alt="">
+        <img class="cloud c2" src="assets/cloud.png" alt="">
+        <img class="cloud c3" src="assets/cloud.png" alt="">
+      </div>
+      <div class="ground"></div>
+
+      <div class="season-row">
+        <span class="season-butterfly sprite-butterfly" aria-hidden="true"></span>
+        <button class="season-tag" id="seasonTag">
+          <span id="seasonName">Primavera</span>
+          <img class="season-flower" src="assets/flower_small.png" alt="">
+        </button>
+        <span class="season-note" id="seasonNote"></span>
+      </div>
+      <button class="sound-btn" id="btnSound" aria-label="Ativar sons"><img src="assets/icon_sound_off.png" alt=""></button>
+
+      <div class="side-decor left">
+        <img class="sway" src="assets/flower_small.png" alt="">
+        <img class="sway d2" src="assets/flower_small.png" alt="">
+        <img class="bush" src="assets/bush.png" alt="">
+      </div>
+      <div class="side-decor right">
+        <img class="sway d3" src="assets/flower_small.png" alt="">
+        <img class="sway" src="assets/flower_small.png" alt="">
+        <img class="sway d2" src="assets/flower_small.png" alt="">
+        <img class="bush" src="assets/bush.png" alt="">
+      </div>
+
+      <section class="calendar" id="calendar" aria-label="Calendário">
+        <div class="weekbar" id="weekbar"></div>
+        <div class="grid" id="grid" role="grid"></div>
+      </section>
+
+      <div class="garden" id="garden">
+        <img class="g-bush b1" src="assets/bush.png" alt="">
+        <img class="g-bush b2" src="assets/bush.png" alt="">
+        <img class="g-flower f3 sway" src="assets/flowers_primavera.png" alt="">
+        <img class="g-flower f4 sway d3" src="assets/flowers_primavera.png" alt="">
+        <div class="chicken" id="chicken" aria-hidden="true"></div>
+        <img class="chick" src="assets/chick.png" alt="">
+        <img class="g-flower f1 sway" src="assets/flowers_primavera.png" alt="">
+        <img class="g-flower f2 sway d2" src="assets/flowers_primavera.png" alt="">
+        <img class="tulips sway d3" src="assets/tulips.png" alt="">
+        <div class="fence"></div>
+      </div>
+      <div id="butterflies" aria-hidden="true"></div>
+    </main>
+
+    <!-- Botões grandes -->
+    <footer class="bottom-bar">
+      <button class="big-btn" id="btnEvents"><img src="assets/icon_cake.png" alt=""><span>Eventos</span></button>
+      <button class="big-btn" id="btnHolidays"><img src="assets/icon_tent.png" alt=""><span>Feriados</span></button>
+    </footer>
+  </div>
+
+  <!-- Camada de painéis (dia, eventos, feriados, seletor de mês) -->
+  <div id="overlay" class="overlay" hidden></div>
+  <div id="toast" class="toast" hidden></div>
+
+  <script src="js/calendar.js"></script>
+  <script src="js/seasons.js"></script>
+  <script src="js/holidays.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/sound.js"></script>
+  <script src="js/decor.js"></script>
+  <script src="js/panels.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
